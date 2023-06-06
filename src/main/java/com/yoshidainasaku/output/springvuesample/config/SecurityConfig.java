@@ -11,8 +11,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // Todo: 処理の実装
         // 今のところはSpring Securityの無効化を行っている
-        http.authorizeHttpRequests(authz -> authz
-                .anyRequest().permitAll());
+        http.csrf(csrf -> csrf.ignoringRequestMatchers("/sample"))
+                .authorizeHttpRequests(authz -> authz.anyRequest().permitAll());
+
         return http.build();
     }
 }
