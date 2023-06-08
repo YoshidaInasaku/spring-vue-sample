@@ -4,9 +4,9 @@ services:
     container_name: inasaku_postgres
     build: ./postgres
     environment:
-      POSTGRES_USER: inasaku
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: dbsamp
+      POSTGRES_USER: ${USERNAME}
+      POSTGRES_PASSWORD: ${PASSWORD}
+      POSTGRES_DB: ${DATABASE}
     ports:
       - '5432:5432'
     volumes:
@@ -29,9 +29,9 @@ services:
     build: ./vue
     ports:
       - '8081:8080'
-    tty: true
     volumes:
       - ../vue:/usr/src/app
     stdin_open: true
+    tty: true
 
 

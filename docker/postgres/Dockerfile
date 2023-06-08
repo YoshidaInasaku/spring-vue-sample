@@ -1,4 +1,4 @@
 FROM postgres:latest
 
-EXPOSE 543
+EXPOSE 5432
 
